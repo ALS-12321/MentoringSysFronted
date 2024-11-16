@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="container-fluid m-0 p-0">
+                <div class="row">
+
+                    <div class="col-6 col-md-6 p-2">
+                        <mat-card class="container-fluid rounded shadow-sm">
+                            <mat-card-content class="row">
+                                <div class="col-12 text-center">
+                                    <label class="fs-2 my-4 fw-bold">Actualizar datos</label>
+                                </div>
+                                <div class="col-12">
+                                    <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Nombre</mat-label>
+                                                <input matInput formControlName="nombre" placeholder="Mariel Torres">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Email</mat-label>
+                                                <input matInput formControlName="email" type="email" placeholder="Marilu2020@hotmail.com">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Contraseña</mat-label>
+                                                <input matInput formControlName="password" type="password" placeholder="••••••••">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Fecha de Nacimiento</mat-label>
+                                                <input matInput formControlName="fecha_nacimiento" type="date">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Foto de Perfil</mat-label>
+                                                <input matInput formControlName="fotoPerfil" placeholder="foto1.jpg">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Preferencias</mat-label>
+                                                <input matInput formControlName="preferencias" placeholder="Preferencias A">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="text-center mb-1">
+                                            <mat-slide-toggle formControlName="fondoOscuro">Fondo Oscuro</mat-slide-toggle>
+                                        </div>
+                                        <div class="text-center mb-1">
+                                            <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+
+                    <div class="col-6 col-md-6 p-2">
+                        <mat-card class="container-fluid rounded shadow-sm">
+                            <mat-card-content class="row">
+                                <div class="col-12 text-center">
+                                    <label class="fs-2 my-4 fw-bold">Especialidad</label>
+                                </div>
+                                <div class="col-12">
+                                    <form [formGroup]="especialidadForm" (ngSubmit)="onSubmit()">
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Especialidad</mat-label>
+                                                <input matInput formControlName="especialidad">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Tarifa</mat-label>
+                                                <input matInput formControlName="tarifa">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mb-1">
+                                            <mat-slide-toggle formControlName="esParticular">Es Particular</mat-slide-toggle>
+                                        </div>
+                                        <div class="text-center mb-1">
+                                            <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
