@@ -1,0 +1,76 @@
+<div class="container-fluid m-0 p-0 bg-secondary vh-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-8 col-md-6 col-lg-4 col-xl-3">
+            <mat-card class="rounded shadow-sm m-1">
+                <mat-card-content class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <label class="fs-2 my-4 fw-bold">Iniciar Sesión</label>
+                        </div>
+                        <div class="col-12">
+                            <mat-tab-group [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)" class="container-fluid m-0 p-0">
+                                <!-- Tab para Boleta (cliente con DNI) -->
+                                <mat-tab label="Alumno" class="row">
+                                    <div class="col-12 p-2 text-center">
+                                        <label class="fs-5 w-100 my-3">Ingresa tus Credenciales</label>
+                                        <mat-divider class="mb-3"></mat-divider>
+                                    </div>
+                                    <div class="col-12 p-2">
+                                        <form [formGroup]="alumnoForm" (ngSubmit)="loginAlumno()">
+                                            <mat-form-field appearance="outline" class="w-100 my-2">
+                                                <mat-label>Usuario</mat-label>
+                                                <input matInput formControlName="alumnoUsuario" placeholder="Ingrese su usuario">
+                                            </mat-form-field>
+                                            <mat-form-field appearance="outline" class="w-100 my-2">
+                                                <mat-label>Contraseña</mat-label>
+                                                <input matInput [type]="showAlumnoPassword ? 'text' : 'password'" formControlName="alumnoContrasena" placeholder="Ingrese su contraseña">
+                                                <button mat-icon-button matSuffix type="button" (click)="showAlumnoPassword = !showAlumnoPassword">
+                                                    <mat-icon>{{ showAlumnoPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                                                </button>
+                                            </mat-form-field>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button mat-raised-button class="bg-primary text-white" type="submit" [disabled]="!alumnoForm.valid">
+                                                    Iniciar Sesión
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </mat-tab>
+
+                                <!-- Tab para Tutor -->
+                                <mat-tab label="Tutor" class="row">
+                                    <div class="col-12 p-2 text-center">
+                                        <label class="fs-5 w-100 my-3">Ingresa tus Credenciales</label>
+                                        <mat-divider class="mb-3"></mat-divider>
+                                    </div>
+                                    <div class="col-12 p-2">
+                                        <form [formGroup]="tutorForm" (ngSubmit)="loginTutor()">
+                                            <mat-form-field appearance="outline" class="w-100 my-2">
+                                                <mat-label>Usuario</mat-label>
+                                                <input matInput formControlName="tutorUsuario" placeholder="Ingrese su usuario">
+                                            </mat-form-field>
+                                            <mat-form-field appearance="outline" class="w-100 my-2">
+                                                <mat-label>Contraseña</mat-label>
+                                                <input matInput [type]="showTutorPassword ? 'text' : 'password'" formControlName="tutorContrasena" placeholder="Ingrese su contraseña">
+                                                <button mat-icon-button matSuffix type="button" (click)="showTutorPassword = !showTutorPassword">
+                                                    <mat-icon>{{ showTutorPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                                                </button>
+                                            </mat-form-field>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button mat-raised-button class="bg-primary text-white" type="submit" [disabled]="!tutorForm.valid">
+                                                    Iniciar Sesión
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </mat-tab>
+
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>            
+        </div>
+    </div>
+</div>

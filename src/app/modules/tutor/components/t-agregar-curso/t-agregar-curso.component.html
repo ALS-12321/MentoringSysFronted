@@ -1,0 +1,50 @@
+
+
+                                
+<div class="container p-4">
+    <div class="row">
+        <div class="col-12 my-3 text-center">
+            <label class="fs-3 fw-bold">Agregar Curso</label>
+        </div>
+        <div class="col-12">
+            <label class="my-4">Completar el Formulario</label>
+        </div>
+        <div class="col-12">
+            <form [formGroup]="cursoForm" (ngSubmit)="updateEspecalidad()">
+                <div class="mb-1">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>NRC</mat-label>
+                        <input matInput formControlName="nrc" placeholder="NRC">
+                    </mat-form-field>
+                </div>
+                <div class="mb-1">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre" placeholder="Nombre Curso">
+                    </mat-form-field>
+                </div>
+                <div class="mb-1">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Linea Curso</mat-label>
+                        <input matInput formControlName="linea_curso" placeholder="Linea de Curso">
+                    </mat-form-field>
+                </div>
+                <div class="mb-1">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Nro Creditos</mat-label>
+                        <input matInput formControlName="nro_creditos" type="number" placeholder="1">
+                    </mat-form-field>
+                </div>
+                <div class="mb-5">
+                    <mat-slide-toggle formControlName="electivo">Electivo</mat-slide-toggle>
+                </div>
+                <div class="mb-2">
+                    <div class="my-3">
+                        <button mat-raised-button class="bg-primary text-white" type="submit">Agregar Curso</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+                            

@@ -1,0 +1,25 @@
+<div class="container-fluid p-0 m-0 bg-secondary h-100">
+    <div class="row m-0 d-flex align-items-center justify-content-center h-100">
+        <div class="col-12 m-2">
+            <div class="container my-2 text-center border rounded bg-white shadow-sm">
+                <div class="row py-3 align-items-center">
+                    <div class="col-4 text-start ps-3 d-flex align-items-center">
+                        <label class="fs-4 px-3 m-2">Mentoring System</label>
+                    </div>
+                    <div class="col-8 d-flex justify-content-end">
+                        <!-- Navbar links generated dynamically -->
+                        <ng-container *ngFor="let item of menu">
+                            <a [routerLink]="item.route" class="mx-3 text-decoration-none text-dark"> 
+                                <i [className]="item.icon"></i>
+                                <span class="ms-2">{{ item.title }}</span>
+                            </a>
+                        </ng-container>
+                    </div>                
+                </div>
+            </div>            
+        </div>
+        <div class="col-12 bg-secondary">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

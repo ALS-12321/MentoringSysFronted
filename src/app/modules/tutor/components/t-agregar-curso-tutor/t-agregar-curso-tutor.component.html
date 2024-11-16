@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12">
+            <mat-card class="container-fluid rounded shadow-sm m-1">
+                <mat-card-content class="row">
+                    <div class="row">
+                        <div class="col-12 col-xl-3">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 d-flex content-items-center py-4">
+                                        <label class="fs-3 fw-bold">Agregar Curso</label>
+                                        <button (click)="openModalAgregarCurso()" matTooltip="Agregar Curso" class="ms-2 bg-warning shadow-sm text-white" mat-mini-fab aria-label="Agregar Curso">
+                                            <i class="fa-solid fa-folder-plus text-white fa-xl"></i>
+                                        </button>
+                                    </div>
+    
+                                    <div class="col-12">
+                                        <mat-divider class="mt-2 mb-4"></mat-divider>
+                                    </div>
+    
+                                    <div class="col-12" [formGroup]="formAgregarCursoTutor">
+                                        <mat-form-field appearance="outline" class="d-block my-1">
+                                            <mat-label>Curso</mat-label>
+                                            <mat-select formControlName="curso">
+                                                <mat-option *ngFor="let curso of cursosArray" [value]="curso.id">{{curso.nombre}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+    
+                                        <mat-form-field appearance="outline" class="d-block my-1">
+                                            <mat-label>Total Cupos</mat-label>
+                                            <input matInput formControlName="total_cupos" type="number" placeholder="1">
+                                        </mat-form-field>
+    
+                                        <div class="my-1">
+                                            <button class="btn btn-primary text-white w-100">
+                                                Agregar Curso
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-12 col-xl-9">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 d-flex content-items-center py-4">
+                                        <label class="fs-3 fw-bold">Mis Cursos</label>                                    
+                                    </div>
+                                    <div class="col-12">
+                                        <mat-divider class="mt-2 mb-4"></mat-divider>
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

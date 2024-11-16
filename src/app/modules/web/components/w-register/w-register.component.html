@@ -1,0 +1,62 @@
+<div class="container-fluid m-0 p-0 bg-secondary vh-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-8 col-md-6 col-lg-4 col-xl-3">
+            <mat-card class="rounded shadow-sm m-1">
+                <mat-card-content class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <label class="fs-2 my-4 fw-bold">Registro de Usuario</label>
+                        </div>
+                        <div class="col-12">
+                            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                                <mat-form-field appearance="outline" class="w-100 my-2">
+                                    <mat-label>Nombre Completo</mat-label>
+                                    <input matInput formControlName="nombre" placeholder="Ingrese su nombre completo">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100 my-2">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput type="email" formControlName="email" placeholder="Ingrese su email">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100 my-2">
+                                    <mat-label>Nombre de Usuario</mat-label>
+                                    <input matInput formControlName="username" placeholder="Ingrese su nombre de usuario">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100 my-2">
+                                    <mat-label>Contraseña</mat-label>
+                                    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Ingrese su contraseña">
+                                    <button mat-icon-button matSuffix type="button" (click)="showPassword = !showPassword">
+                                        <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                                    </button>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100 my-2">
+                                    <mat-label>Fecha de Nacimiento</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento" placeholder="Seleccione su fecha de nacimiento">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100 my-2">
+                                    <mat-label>Tipo de Usuario</mat-label>
+                                    <mat-select formControlName="tipoUsuario">
+                                        <mat-option value="E">Estudiante</mat-option>
+                                        <mat-option value="T">Tutor</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button mat-raised-button class="bg-primary text-white" type="submit" [disabled]="!registerForm.valid">
+                                        Registrar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
