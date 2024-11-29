@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './w-home.component.css'
 })
 export class WHomeComponent {
-
+  classPath:string ="assets/img/img-sources/classImg.jpg"
+  
 }

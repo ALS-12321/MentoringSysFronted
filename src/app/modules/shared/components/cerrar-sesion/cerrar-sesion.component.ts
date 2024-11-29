@@ -11,7 +11,7 @@ import { CerrarSesionService } from '../../../web/services/cerrar-sesion.service
 export class CerrarSesionComponent {
 
   constructor(private cerrarSesionService: CerrarSesionService){
-    this.cerrarSesionService.logOutSession();
+    this.cerrarSesionService.logOutSession();    
   }
 
 }

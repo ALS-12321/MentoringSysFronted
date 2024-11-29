@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { TAgregarCursoComponent } from '../t-agregar-curso/t-agregar-curso.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TModalAgregaHorarioComponent } from '../t-modal-agrega-horario/t-modal-agrega-horario.component';
+import { AModalHorariosComponent } from '../a-modal-horarios/a-modal-horarios.component';
+import { AModalEnviarResenaComponent } from '../a-modal-enviar-resena/a-modal-enviar-resena.component';
 
 @Component({
-  selector: 'app-t-agregar-curso-tutor',
-  templateUrl: './t-agregar-curso-tutor.component.html',
-  styleUrl: './t-agregar-curso-tutor.component.css'
+  selector: 'app-a-inscripciones',
+  templateUrl: './a-inscripciones.component.html',
+  styleUrl: './a-inscripciones.component.css'
 })
-export class TAgregarCursoTutorComponent {
+export class AInscripcionesComponent {
 
   cursosArray: any[] = [
     {
@@ -113,75 +113,80 @@ export class TAgregarCursoTutorComponent {
       "updated_at": "2024-11-16"
     }
   ]
-  currentCurso : any = {    
-  }
-  formAgregarCursoTutor: FormGroup;
 
-  listCursoProfesor: any[] = [];
+  cursosSuscritos: any[] = [
+    {
+        "cursoId": 2,
+        "curso": {
+            "id": 2,
+            "nombre": "Álgebra Lineal Avanzada",
+            "descripcion": "Curso intensivo de álgebra lineal para estudiantes avanzados.",
+            "duracion": 40,
+            "nivel": "Avanzado",
+            "precio": 120,
+            "created_at": "2024-11-16",
+            "updated_at": "2024-11-16"
+        },
+        "horarios": [],
+        "resenas": [],
+        "alumnosInscritos": 15,
+        "totalCupos": 40
+    },
+    {
+        "cursoId": 8,
+        "curso": {
+            "id": 8,
+            "nombre": "Geometría para Ingenieros",
+            "descripcion": "Curso especializado en geometría aplicada a la ingeniería.",
+            "duracion": 35,
+            "nivel": "Avanzado",
+            "precio": 100,
+            "created_at": "2024-11-16",
+            "updated_at": "2024-11-16"
+        },
+        "horarios": [],
+        "resenas": [],
+        "alumnosInscritos": 45,
+        "totalCupos": 60
+    }
+  ]
 
   constructor(
     private dialog: MatDialog,
     private _fb: FormBuilder,
   ){
-
-    this.formAgregarCursoTutor = this._fb.group({
-      curso: ['', Validators.required],
-      curso_id: 1,
-      total_cupos: [0 , Validators.required],
-    });
-
-  }
-
-  setCurso(values : any){
-    this.currentCurso = values;
-    console.log("this.currentCurso");
-    console.log(this.currentCurso);
-  }
-
-  agregarCurso(values: any) {
-
-    let cursoData : any = {
-      cursoId : this.currentCurso['id'],
-      curso : this.currentCurso,
-      horarios: [],
-      alumnosInscritos: 0,
-      totalCupos: values.total_cupos,
-    }
-    console.log("cursoData");
-    console.log(cursoData);
-    this.listCursoProfesor.push(cursoData); 
-    console.log("this.listCursoProfesor");
-    console.log(this.listCursoProfesor);
-
-    this.formAgregarCursoTutor.reset();
-  }
-
-  openModalAgregarCurso() {    
     
-    this.dialog.open(TAgregarCursoComponent,{
-      height: 'auto',
-      width: '600px',
-      disableClose: false,
-      data: {                
-      }
-    });
   }
 
-  openModalAgregarHorario(values: any): void {
-    const dialogRef = this.dialog.open(TModalAgregaHorarioComponent, {
-      width: '700px',
-      maxHeight: '90vh',
-      data: {
+  openModalAgregarCurso(values: any) {    
+    
+    const dialogRef = this.dialog.open(AModalHorariosComponent,{
+      height: 'auto',
+      width: '400px',
+      disableClose: false,
+      data: {      
         cursoData: values,
-      },
-    });
-  
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        console.log('Resultado del modal:', result);
-        values.horarios.push(result);
       }
     });
-  }
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('El diálogo se cerró');      
+    });
+  }  
+
+  openModalAgregarResena(values: any) {    
+    
+    const dialogRef = this.dialog.open(AModalEnviarResenaComponent,{
+      height: 'auto',
+      width: '400px',
+      disableClose: false,
+      data: {      
+        cursoData: values,
+      }
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('El diálogo se cerró');
+      values.resenas.push(result);      
+    });
+  }  
 
 }

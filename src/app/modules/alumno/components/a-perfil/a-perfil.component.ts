@@ -16,7 +16,7 @@ export class APerfilComponent {
       email: ['Marilu2020@hotmail.com'],
       password: [''],
       fecha_nacimiento: ['2002-04-04'],
-      fotoPerfil: ['foto1.jpg'],
+      fotoPerfil: [],
       preferencias: ['Preferencias A'],
       fondoOscuro: [true]
     });

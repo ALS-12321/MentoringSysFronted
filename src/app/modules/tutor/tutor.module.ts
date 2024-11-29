@@ -33,11 +33,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { TAgregarCursoTutorComponent } from './components/t-agregar-curso-tutor/t-agregar-curso-tutor.component';
+import { TModalAgregaHorarioComponent } from './components/t-modal-agrega-horario/t-modal-agrega-horario.component';
 
 
 @NgModule({
   declarations: [
     TMainComponent,
+    TModalAgregaHorarioComponent,
     TAgregarCursoComponent,
     TAgregarCursoTutorComponent,
     TPerfilComponent,

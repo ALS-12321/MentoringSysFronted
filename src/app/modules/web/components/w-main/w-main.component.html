@@ -6,7 +6,9 @@
                     <div class="col-4 text-start ps-3 d-flex align-items-center">
                         <label class="fs-4 px-3 m-2">Mentoring System</label>
                     </div>
-                    <div class="col-4"></div>
+                    <div class="col-4 text-start">
+                        <a class="fs-6" [routerLink]="['/web/inicio']">Inicio</a>
+                    </div>
                     <div class="col-4 text-end pe-3">
                         <div class="container-fluid">
                             <div class="row d-flex align-items-center">
@@ -22,9 +24,9 @@
                 </div>
             </div>            
         </div>
-        <div class="col-12 h-100">
+        <div class="col-12 h-100 p-0">
             <router-outlet></router-outlet>
+            <app-w-footer></app-w-footer>
         </div>
     </div>
 </div>
-<app-w-footer></app-w-footer>

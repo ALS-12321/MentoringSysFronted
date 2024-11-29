@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '', component: WMainComponent,
     children:[
-      {path: 'inicio', component: WHomeComponent},
+      {path: 'inicio', component: WHomeComponent, pathMatch: 'full'},
       {path: 'login', component: WLoginComponent},
       {path: 'registro', component: WRegisterComponent},
     ]    

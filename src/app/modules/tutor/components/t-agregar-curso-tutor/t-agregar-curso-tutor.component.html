@@ -1,8 +1,8 @@
-<div class="container">
-    <div class="row">
+<div class="container h-100">
+    <div class="row h-100">
         
-        <div class="col-12">
-            <mat-card class="container-fluid rounded shadow-sm m-1">
+        <div class="col-12 h-100 h-100">
+            <mat-card class="container-fluid rounded shadow-sm m-1 h-100">
                 <mat-card-content class="row">
                     <div class="row">
                         <div class="col-12 col-xl-3">
@@ -23,7 +23,7 @@
                                         <mat-form-field appearance="outline" class="d-block my-1">
                                             <mat-label>Curso</mat-label>
                                             <mat-select formControlName="curso">
-                                                <mat-option *ngFor="let curso of cursosArray" [value]="curso.id">{{curso.nombre}}</mat-option>
+                                                <mat-option *ngFor="let curso of cursosArray" (click)="setCurso(curso)" [value]="curso.nombre">{{curso.nombre}}</mat-option>
                                             </mat-select>
                                         </mat-form-field>
     
@@ -33,7 +33,7 @@
                                         </mat-form-field>
     
                                         <div class="my-1">
-                                            <button class="btn btn-primary text-white w-100">
+                                            <button class="btn btn-primary text-white w-100" (click)="agregarCurso(formAgregarCursoTutor.value)">
                                                 Agregar Curso
                                             </button>
                                         </div>
@@ -52,6 +52,50 @@
                                     <div class="col-12">
                                         <mat-divider class="mt-2 mb-4"></mat-divider>
                                     </div>                                
+                                    <div class="col-12 p-2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4 p-2" *ngFor="let curso of listCursoProfesor">
+                                                    <mat-card class="w-100 border border-info">
+                                                        <mat-card-content class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 text-center">
+                                                                    <label class="fs-5 my-2">{{curso.curso.nombre}}</label>
+                                                                </div>
+                                                                <div class="col-12 my-3">
+                                                                    <label class="fs-6 d-block my-2">Nivel: {{curso.curso.nivel}}</label>
+                                                                    <label class="fs-6 d-block my-2">Cupos Maximos: {{curso.totalCupos}}</label>
+                                                                    <label class="fs-6 d-block">Precio: S/{{curso.curso.precio | number: '1.2-2'}}</label>
+                                                                    <p class="d-block mt-2" style="text-align: justify;">{{curso.curso.descripcion}}</p>
+                                                                </div>
+                                                                <div class="col-12 my-3">
+                                                                    <h6>Horarios:</h6>
+                                                                    <div *ngIf="curso.horarios && curso.horarios.length > 0; else noHorarios">
+                                                                      <ul class="list-group">
+                                                                        <li class="list-group-item" *ngFor="let horario of curso.horarios">
+                                                                          <strong>{{ horario.dia }}</strong> - Aula: {{ horario.aula }}<br>
+                                                                          Fecha: {{ horario.fecha | date: 'dd/MM/yyyy' }}<br>
+                                                                          Hora: {{ horario.horaInicio }} - {{ horario.horaFin }}<br>
+                                                                          <span [class.text-success]="horario.disponible" [class.text-danger]="!horario.disponible">
+                                                                            {{ horario.disponible ? 'Disponible' : 'No Disponible' }}
+                                                                          </span>
+                                                                        </li>
+                                                                      </ul>
+                                                                    </div>
+                                                                    <ng-template #noHorarios>
+                                                                      <p class="text-muted">No hay horarios asignados.</p>
+                                                                    </ng-template>
+                                                                  </div>
+                                                                <div class="col-12 my-3 text-end">
+                                                                    <button class="btn btn-sm btn-dark" (click)="openModalAgregarHorario(curso)">Agregar Horario</button>
+                                                                </div>
+                                                            </div>
+                                                        </mat-card-content>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

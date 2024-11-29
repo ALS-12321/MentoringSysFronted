@@ -32,11 +32,18 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { TMainComponent } from '../tutor/components/t-main/t-main.component';
 import { AMainComponent } from './components/a-main/a-main.component';
 import { APerfilComponent } from './components/a-perfil/a-perfil.component';
+import { AInscripcionesComponent } from './components/a-inscripciones/a-inscripciones.component';
+import { AModalHorariosComponent } from './components/a-modal-horarios/a-modal-horarios.component';
+import { AModalEnviarResenaComponent } from './components/a-modal-enviar-resena/a-modal-enviar-resena.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     AMainComponent,
+    AInscripcionesComponent,
+    AModalHorariosComponent,
+    AModalEnviarResenaComponent,
     APerfilComponent,
 
   ],
@@ -61,6 +68,7 @@ import { APerfilComponent } from './components/a-perfil/a-perfil.component';
     MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
+    MatDialogModule,
     MatSlideToggleModule,
     MatInputModule,
     MatDatepickerModule,

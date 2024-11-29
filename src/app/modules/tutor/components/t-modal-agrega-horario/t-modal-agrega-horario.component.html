@@ -1,0 +1,49 @@
+<mat-dialog-content>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-4">
+               <label class="fs-4 my-4">Agregar Horario</label>
+            </div>
+            <div class="col-12 p-4">
+                <form [formGroup]="horarioForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="outline" class="d-block my-1">
+                      <mat-label>Día</mat-label>
+                      <mat-select formControlName="dia">
+                        <mat-option *ngFor="let dia of dias" [value]="dia">{{ dia }}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="outline" class="d-block my-1">
+                      <mat-label>Aula</mat-label>
+                      <input matInput formControlName="aula" placeholder="Ej. G 705" />
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="outline" class="d-block my-1">
+                      <mat-label>Fecha</mat-label>
+                      <input matInput formControlName="fecha" type="date" />
+                      
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="outline" class="d-block my-1">
+                      <mat-label>Hora de Inicio</mat-label>
+                      <input matInput formControlName="horaInicio" type="time" />
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="outline" class="d-block my-1">
+                      <mat-label>Hora de Fin</mat-label>
+                      <input matInput formControlName="horaFin" type="time" />
+                    </mat-form-field>
+                
+                    <mat-checkbox formControlName="disponible">Disponible</mat-checkbox>
+                
+                    <div mat-dialog-actions align="end">
+                      <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+                      <button mat-raised-button color="primary" type="submit">Guardar</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+  
+</mat-dialog-content>
+

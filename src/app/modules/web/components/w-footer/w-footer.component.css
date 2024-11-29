@@ -1,0 +1,35 @@
+.bg-secondary {
+    background-color: #343a40 !important;
+  }
+  
+  h5 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    padding-left: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  .mat-icon {
+    vertical-align: middle;
+    font-size: 1.2rem;
+  }
+  
+  hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .text-white a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  
+  .text-white a:hover {
+    color: #ffc107; /* Amarillo para hover */
+  }
+  

@@ -1,0 +1,115 @@
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12">
+            <mat-card class="container-fluid rounded shadow-sm m-1">
+                <mat-card-content class="row">
+                    <div class="row">
+                        <div class="col-12 col-xl-12">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 d-flex content-items-center py-4">
+                                        <label class="fs-3 fw-bold">Mis Cursos</label>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                    <div class="col-4 p-2" *ngFor="let curso of cursosSuscritos">
+                                        <mat-card class="w-100 border border-info">
+                                            <mat-card-content class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12 text-center">
+                                                        <label class="fs-5 my-2">{{curso.curso.nombre}}</label>
+                                                    </div>
+                                                    <div class="col-12 my-3">
+                                                        <label class="fs-6 d-block my-2">Nivel: {{curso.curso.nivel}}</label>
+                                                        <label class="fs-6 d-block my-2">Inscritos: {{curso.alumnosInscritos}}</label>
+                                                        <label class="fs-6 d-block my-2">Cupos Maximos: {{curso.totalCupos}}</label>
+                                                        <label class="fs-6 d-block">Precio: S/{{curso.curso.precio | number: '1.2-2'}}</label>
+                                                        <p class="d-block mt-2" style="text-align: justify;">{{curso.curso.descripcion}}</p>
+                                                    </div>
+                                                    <div class="col-12 my-3">
+                                                        <h5>Reseñas:</h5>
+                                                        <div *ngIf="curso.resenas.length > 0; else noResenas">
+                                                            <div *ngFor="let resena of curso.resenas">
+                                                                <p class="fst-italic">"{{ resena.resena }}"</p>
+                                                                <p class="text-muted small">- {{ resena.date | date: 'shortDate' }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <ng-template #noResenas>
+                                                            <p class="text-muted">Aún no hay reseñas para este curso.</p>
+                                                        </ng-template>
+                                                    </div>
+                                                    <div class="col-12 my-3 text-end">
+                                                        <button class="btn btn-sm btn-dark" (click)="openModalAgregarResena(curso)">Enviar Mi Reseña</button>
+                                                    </div>
+                                                </div>
+                                            </mat-card-content>
+                                        </mat-card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xl-12 my-2">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 d-flex content-items-center py-4">
+                                        <label class="fs-3 fw-bold">Inscripciones</label>                                    
+                                    </div>
+                                    <div class="col-12">
+                                        <mat-divider class="mt-2 mb-4"></mat-divider>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4 p-3" *ngFor="let curso of cursosArray">
+                                                    <mat-card class="bg-light border boder-dark h-100">
+                                                        <mat-card-content>
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 text-center">
+                                                                        <label class="fs-6 my-3 fw-bold">{{curso.nombre | uppercase}}</label>
+                                                                        <mat-divider class="mb-4"></mat-divider>
+                                                                    </div>
+                                                                    <div class="col-12 text-start px-4">
+                                                                        <span class="my-3 text-secondary fw-bold">Nivel : <label>{{curso.nivel}}</label></span>
+                                                                    </div>
+                                                                    <div class="col-12 text-start px-4">
+                                                                        <span class="my-3 text-secondary fw-bold">Precio : <label>{{curso.precio}}</label></span>                                                                        
+                                                                    </div>
+                                                                    <div class="col-12 text-start px-4">
+                                                                        <span class="my-3 text-secondary fw-bold">Duración : <label>{{curso.duracion}}</label></span>                                                                        
+                                                                    </div>
+                                                                    <div class="col-12 text-start px-4">
+                                                                        <span class="my-3 text-secondary fw-bold">Precio : <label>{{curso.precio}}</label></span>                                                                        
+                                                                    </div>
+                                                                    <div class="col-12 text-start px-4">
+                                                                        <span class="my-3 text-secondary fw-bold">Descripción :</span>
+                                                                        <p style="text-align: justify;" class="">{{curso.descripcion}}</p>
+                                                                    </div>
+                                                                    <div class="col-12 text-end my-3">
+                                                                        <button matTooltip="Incribirme" (click)="openModalAgregarCurso(curso)" class="btn btn-lg rounded rounded-circle bg-info shadow-sm">
+                                                                            <i class="fa-solid fa-plus text-white"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </mat-card-content>
+                                                    </mat-card>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
